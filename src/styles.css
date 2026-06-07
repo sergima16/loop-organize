@@ -36,8 +36,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Nunito", ui-rounded, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito", "Inter", ui-rounded, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -100,5 +100,8 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+  .light .loop-logo-img {
+    filter: invert(1);
   }
 }

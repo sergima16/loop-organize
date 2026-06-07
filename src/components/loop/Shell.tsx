@@ -1,15 +1,15 @@
 import { Calendar, Circle, CheckSquare, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
-import loopLogo from "@/assets/loop-logo.png.asset.json";
+import loopLogo from "@/assets/loop-logo.png";
 
 export type LoopTab = "home" | "calendar" | "checks";
 
 export function LoopLogo({ className = "" }: { className?: string }) {
   return (
     <img
-      src={loopLogo.url}
+      src={loopLogo}
       alt="loop"
-      className={`h-9 w-auto select-none ${className}`}
+      className={`h-16 w-auto select-none loop-logo-img ${className}`}
       draggable={false}
     />
   );
@@ -22,7 +22,7 @@ export function TopBar() {
   }, [light]);
 
   return (
-    <header className="flex items-center justify-between px-5 pt-5 pb-3">
+    <header className="flex items-center justify-between px-5 pt-5 pb-2">
       <LoopLogo />
       <button
         onClick={() => setLight((v) => !v)}
@@ -34,6 +34,7 @@ export function TopBar() {
     </header>
   );
 }
+
 
 
 interface BottomNavProps {

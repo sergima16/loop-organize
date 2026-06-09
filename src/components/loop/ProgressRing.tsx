@@ -9,8 +9,8 @@ interface ProgressRingProps {
 
 export function ProgressRing({
   value,
-  size = 110,
-  stroke = 9,
+  size = 124,
+  stroke = 10,
   color,
   label,
   sublabel = "hoy",
@@ -19,8 +19,8 @@ export function ProgressRing({
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const offset = c - (v / 100) * c;
-  const ringColor = color ?? (v >= 60 ? "var(--success)" : "var(--danger)");
-  const text = label ?? `${Math.round(v)}%`;
+  const ringColor = color ?? (v >= 60 ? "var(--success)" : v > 0 ? "var(--danger)" : "var(--muted-foreground)");
+  const text = label ?? `${Math.round(v)}`;
 
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
@@ -43,14 +43,15 @@ export function ProgressRing({
           fill="none"
           strokeDasharray={c}
           strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 600ms cubic-bezier(.2,.8,.2,1)" }}
+          style={{ transition: "stroke-dashoffset 700ms cubic-bezier(.2,.8,.2,1)" }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-xl font-semibold" style={{ color: ringColor }}>
+        <span className="stat-num text-3xl font-bold leading-none" style={{ color: ringColor }}>
           {text}
+          {label === undefined && <span className="text-base font-semibold">%</span>}
         </span>
-        <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{sublabel}</span>
+        <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{sublabel}</span>
       </div>
     </div>
   );

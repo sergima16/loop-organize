@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, BellOff } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useLoop, todayKey, weekKeys } from "@/lib/loop-store";
 import { ProgressRing } from "./ProgressRing";
@@ -81,35 +81,42 @@ export function HomeView() {
 
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-sm text-muted-foreground">{greeting(date)}</p>
-          <h1 className="font-display text-3xl font-bold">{data.userName}</h1>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            {greeting(date)}
+          </p>
+          <h1 className="font-display text-3xl font-extrabold tracking-tight">{data.userName}</h1>
         </div>
-        <button className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs text-muted-foreground hover:text-foreground">
-          <BellOff className="h-3.5 w-3.5" /> Enfoque
-        </button>
       </div>
 
-      <div className="rounded-3xl bg-card p-5">
+      <div className="premium-card rounded-3xl p-5">
         <div className="flex items-center gap-5">
           <ProgressRing value={pct} />
           <div className="flex-1">
-            <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Progreso</p>
-            <p className="font-display text-4xl font-bold leading-none">
+            <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Progreso
+            </p>
+            <p className="stat-num font-display text-5xl font-extrabold leading-none">
               {done}
-              <span className="text-muted-foreground">/{total}</span>
+              <span className="text-2xl font-semibold text-muted-foreground">/{total}</span>
             </p>
             <div className="mt-4 h-px bg-border" />
-            <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <div>
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Tareas</p>
-                <p className="font-display font-semibold">
-                  {tasksDone}/{dayTasks.length}
+                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  Tareas
+                </p>
+                <p className="stat-num font-display text-lg font-bold">
+                  {tasksDone}
+                  <span className="text-sm font-semibold text-muted-foreground">/{dayTasks.length}</span>
                 </p>
               </div>
               <div>
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Hábitos</p>
-                <p className="font-display font-semibold">
-                  {habitsDone}/{data.habits.length}
+                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  Hábitos
+                </p>
+                <p className="stat-num font-display text-lg font-bold">
+                  {habitsDone}
+                  <span className="text-sm font-semibold text-muted-foreground">/{data.habits.length}</span>
                 </p>
               </div>
             </div>
@@ -118,42 +125,52 @@ export function HomeView() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl bg-card p-4">
-          <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Pendientes hoy</p>
-          <p className="font-display text-4xl font-bold">{dayTasks.length - tasksDone}</p>
-          <p className="text-xs text-muted-foreground">tareas</p>
+        <div className="premium-card rounded-2xl p-4">
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Pendientes
+          </p>
+          <p className="stat-num font-display text-4xl font-extrabold text-danger">
+            {dayTasks.length - tasksDone}
+          </p>
+          <p className="mt-0.5 text-xs text-muted-foreground">tareas hoy</p>
         </div>
-        <div className="rounded-2xl bg-card p-4">
-          <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Hábitos semana</p>
-          <p className="font-display text-4xl font-bold text-muted-foreground">{weekPct}%</p>
-          <p className="text-xs text-muted-foreground">completado</p>
+        <div className="premium-card rounded-2xl p-4">
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Hábitos sem.
+          </p>
+          <p className={`stat-num font-display text-4xl font-extrabold ${weekPct >= 60 ? "text-success" : weekPct > 0 ? "text-danger" : "text-muted-foreground"}`}>
+            {weekPct}<span className="text-2xl">%</span>
+          </p>
+          <p className="mt-0.5 text-xs text-muted-foreground">completado</p>
         </div>
       </div>
 
-      <div className="rounded-2xl bg-card p-4">
+      <div className="premium-card rounded-2xl p-4">
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Próximas</p>
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Próximas
+          </p>
           <span className="text-xs text-muted-foreground">Ver todo →</span>
         </div>
         {upcoming.length === 0 ? (
-          <p className="py-2 text-sm text-muted-foreground">Sin tareas próximas ✨</p>
+          <p className="py-2 text-sm text-muted-foreground">Sin tareas próximas</p>
         ) : (
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {upcoming.map((t) => (
               <li key={t.id} className="flex items-center gap-3">
                 <button
                   onClick={() => toggleTask(t.id)}
-                  className="h-5 w-5 rounded-full border-2 border-muted-foreground/50 transition hover:border-foreground"
+                  className="h-5 w-5 rounded-full border-2 border-muted-foreground/40 transition hover:border-foreground"
                 />
-                <span className="text-sm">{t.title}</span>
+                <span className="text-sm font-medium">{t.title}</span>
               </li>
             ))}
           </ul>
         )}
       </div>
 
-      <div className="rounded-2xl bg-card p-4">
-        <p className="mb-3 text-[11px] uppercase tracking-wider text-muted-foreground">
+      <div className="premium-card rounded-2xl p-4">
+        <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Hábitos de hoy
         </p>
         {data.habits.length === 0 ? (

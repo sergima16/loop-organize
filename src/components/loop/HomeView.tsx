@@ -92,31 +92,25 @@ export function HomeView() {
         <div className="flex items-center gap-5">
           <ProgressRing value={pct} />
           <div className="flex-1">
-            <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Progreso
+            <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              PROGRESO
             </p>
-            <p className="stat-num font-display text-5xl font-extrabold leading-none">
+            <p className="font-display text-4xl font-extrabold leading-none tracking-tight">
               {done}
-              <span className="text-2xl font-semibold text-muted-foreground">/{total}</span>
+              <span className="text-2xl font-bold text-muted-foreground">/{total}</span>
             </p>
             <div className="mt-4 h-px bg-border" />
             <div className="mt-3 grid grid-cols-2 gap-2">
               <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  Tareas
-                </p>
-                <p className="stat-num font-display text-lg font-bold">
-                  {tasksDone}
-                  <span className="text-sm font-semibold text-muted-foreground">/{dayTasks.length}</span>
+                <p className="text-sm text-muted-foreground">Tareas</p>
+                <p className="font-display text-lg font-extrabold tracking-tight">
+                  {tasksDone}<span className="text-muted-foreground">/{dayTasks.length}</span>
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  Hábitos
-                </p>
-                <p className="stat-num font-display text-lg font-bold">
-                  {habitsDone}
-                  <span className="text-sm font-semibold text-muted-foreground">/{data.habits.length}</span>
+                <p className="text-sm text-muted-foreground">Hábitos</p>
+                <p className="font-display text-lg font-extrabold tracking-tight">
+                  {habitsDone}<span className="text-muted-foreground">/{data.habits.length}</span>
                 </p>
               </div>
             </div>
@@ -126,22 +120,22 @@ export function HomeView() {
 
       <div className="grid grid-cols-2 gap-3">
         <div className="premium-card rounded-2xl p-4">
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Pendientes
+          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            PENDIENTES HOY
           </p>
-          <p className="stat-num font-display text-4xl font-extrabold text-danger">
+          <p className="font-display text-4xl font-extrabold tracking-tight">
             {dayTasks.length - tasksDone}
           </p>
-          <p className="mt-0.5 text-xs text-muted-foreground">tareas hoy</p>
+          <p className="mt-1 text-sm text-muted-foreground">tareas</p>
         </div>
         <div className="premium-card rounded-2xl p-4">
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Hábitos sem.
+          <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            HÁBITOS SEMANA
           </p>
-          <p className={`stat-num font-display text-4xl font-extrabold ${weekPct >= 60 ? "text-success" : weekPct > 0 ? "text-danger" : "text-muted-foreground"}`}>
-            {weekPct}<span className="text-2xl">%</span>
+          <p className={`font-display text-4xl font-extrabold tracking-tight ${weekPct >= 60 ? "text-success" : weekPct > 0 ? "text-danger" : "text-muted-foreground"}`}>
+            {weekPct}%
           </p>
-          <p className="mt-0.5 text-xs text-muted-foreground">completado</p>
+          <p className="mt-1 text-sm text-muted-foreground">completado</p>
         </div>
       </div>
 

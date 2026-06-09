@@ -50,7 +50,7 @@ export function CalendarView() {
         </div>
       </div>
 
-      <div className="rounded-3xl bg-card p-4">
+      <div className="premium-card rounded-3xl p-4">
         <div className="grid grid-cols-7 pb-3 text-center text-[11px] uppercase tracking-wider text-muted-foreground">
           {DAYS.map((d) => (
             <div key={d}>{d}</div>
@@ -85,7 +85,7 @@ export function CalendarView() {
         </div>
       </div>
 
-      <div className="rounded-2xl bg-card p-4">
+      <div className="premium-card rounded-2xl p-4">
         <p className="mb-3 text-[11px] uppercase tracking-wider text-muted-foreground">
           {selected === todayKey(today) ? "Hoy" : selected}
         </p>

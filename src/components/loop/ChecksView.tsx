@@ -87,7 +87,7 @@ export function ChecksView() {
               {tasks.map((t) => (
                 <li
                   key={t.id}
-                  className="flex items-center gap-3 rounded-2xl bg-card px-4 py-3"
+                  className="flex items-center gap-3 premium-card rounded-2xl px-4 py-3"
                 >
                   <button
                     onClick={() =>
@@ -141,7 +141,7 @@ export function ChecksView() {
               {data.habits.map((h) => {
                 const doneCount = week.filter((k) => h.log[k] === true).length;
                 return (
-                  <li key={h.id} className="rounded-2xl bg-card p-4">
+                  <li key={h.id} className="premium-card rounded-2xl p-4">
                     <div className="mb-3 flex items-center gap-3">
                       <span className="text-xl">{h.emoji}</span>
                       <span className="flex-1 font-medium">{h.name}</span>

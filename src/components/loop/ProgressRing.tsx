@@ -47,10 +47,10 @@ export function ProgressRing({
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-2xl font-extrabold leading-none tracking-tight" style={{ color: ringColor }}>
-          {text}{label === undefined && "%"}
+        <span className="font-display text-[28px] font-bold leading-none tracking-[-0.04em]" style={{ color: ringColor }}>
+          {text}{label === undefined && <span className="text-base font-semibold opacity-70">%</span>}
         </span>
-        <span className="mt-1.5 text-[10px] font-medium text-muted-foreground">{sublabel}</span>
+        <span className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{sublabel}</span>
       </div>
     </div>
   );

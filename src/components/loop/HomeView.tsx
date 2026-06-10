@@ -79,14 +79,6 @@ export function HomeView() {
         </button>
       </div>
 
-      <div className="flex items-end justify-between">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            {greeting(date)}
-          </p>
-          <h1 className="font-display text-3xl font-extrabold tracking-tight">{data.userName}</h1>
-        </div>
-      </div>
 
       <div className="premium-card rounded-3xl p-5">
         <div className="flex items-center gap-5">

@@ -46,11 +46,11 @@ export function ProgressRing({
           style={{ transition: "stroke-dashoffset 700ms cubic-bezier(.2,.8,.2,1)" }}
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-[28px] font-bold leading-none tracking-[-0.04em]" style={{ color: ringColor }}>
-          {text}{label === undefined && <span className="text-base font-semibold opacity-70">%</span>}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-2 text-center">
+        <span className="text-[11px] font-medium text-muted-foreground">{sublabel}</span>
+        <span className="font-display text-[30px] font-bold leading-none tracking-[-0.03em]" style={{ color: ringColor }}>
+          {text}<span className="text-lg font-semibold opacity-80">%</span>
         </span>
-        <span className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{sublabel}</span>
       </div>
     </div>
   );

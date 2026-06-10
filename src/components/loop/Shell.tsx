@@ -49,24 +49,24 @@ export function BottomNav({ tab, onChange }: BottomNavProps) {
     { id: "checks", icon: CheckSquare },
   ];
   return (
-    <nav className="sticky bottom-0 z-10 flex items-center justify-around bg-gradient-to-t from-background via-background to-transparent px-6 pb-6 pt-4">
-      {items.map(({ id, icon: Icon }) => {
-        const active = tab === id;
-        return (
-          <button
-            key={id}
-            onClick={() => onChange(id)}
-            className="relative flex flex-col items-center gap-1.5 px-4 py-1 transition"
-            aria-label={id}
-          >
-            <Icon
-              className={`h-5 w-5 transition ${active ? "text-foreground" : "text-muted-foreground"}`}
-              strokeWidth={active ? 2.4 : 1.8}
-            />
-            {active && <span className="h-1 w-1 rounded-full bg-foreground" />}
-          </button>
-        );
-      })}
+    <nav className="sticky bottom-0 z-10 px-6 pb-6 pt-3">
+      <div className="mx-auto flex max-w-xs items-center justify-around rounded-full border border-white/[0.06] bg-card/80 px-2 py-2 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]">
+        {items.map(({ id, icon: Icon }) => {
+          const active = tab === id;
+          return (
+            <button
+              key={id}
+              onClick={() => onChange(id)}
+              className={`relative grid h-11 w-11 place-items-center rounded-full transition ${
+                active ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label={id}
+            >
+              <Icon className="h-[18px] w-[18px]" strokeWidth={active ? 2.4 : 1.9} />
+            </button>
+          );
+        })}
+      </div>
     </nav>
   );
 }

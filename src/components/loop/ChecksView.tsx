@@ -36,15 +36,15 @@ export function ChecksView() {
 
   return (
     <div className="space-y-4 px-5 pb-4">
-      <div className="flex items-center justify-between">
-        <h1 className="font-display text-3xl font-bold">Checks</h1>
+      <div className="flex items-center justify-end">
         <button
           onClick={() => setOpen(true)}
-          className="grid h-10 w-10 place-items-center rounded-full bg-foreground text-background transition hover:scale-105"
+          className="grid h-10 w-10 place-items-center rounded-2xl bg-foreground text-background transition hover:scale-105"
         >
           <Plus className="h-5 w-5" />
         </button>
       </div>
+
 
       <div className="grid grid-cols-2 rounded-full bg-card p-1">
         {(["tareas", "habitos"] as MainTab[]).map((t) => (

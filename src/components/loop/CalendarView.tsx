@@ -31,9 +31,9 @@ export function CalendarView() {
   return (
     <div className="space-y-4 px-5">
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-3xl font-bold">
+        <h2 className="text-[13px] font-medium tracking-tight text-muted-foreground">
           {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
-        </h1>
+        </h2>
         <div className="flex gap-2">
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1))}
@@ -49,6 +49,7 @@ export function CalendarView() {
           </button>
         </div>
       </div>
+
 
       <div className="premium-card rounded-3xl p-4">
         <div className="grid grid-cols-7 pb-3 text-center text-[11px] uppercase tracking-wider text-muted-foreground">

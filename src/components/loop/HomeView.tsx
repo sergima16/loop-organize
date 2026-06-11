@@ -35,47 +35,40 @@ export function HomeView() {
 
   const dateLabel = `${DAYS[date.getDay()]}, ${date.getDate()} ${MONTHS[date.getMonth()]}`;
 
-  const hour = new Date().getHours();
-  const greeting =
-    hour < 6 ? "Buenas noches" : hour < 13 ? "Buenos días" : hour < 21 ? "Buenas tardes" : "Buenas noches";
-
   return (
-    <div className="space-y-5 px-5 pb-2">
+    <div className="space-y-6 px-5 pb-4">
       {/* Day navigator */}
       <div className="flex items-center justify-between text-muted-foreground pt-1">
         <button onClick={() => setOffset((o) => o - 1)} className="grid h-9 w-9 place-items-center rounded-full hover:text-foreground transition">
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <span className="text-base font-medium text-foreground/85">{dateLabel}</span>
+        <span className="text-[15px] font-medium tracking-tight text-foreground/90">{dateLabel}</span>
         <button onClick={() => setOffset((o) => o + 1)} className="grid h-9 w-9 place-items-center rounded-full hover:text-foreground transition">
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>
 
-      {/* Greeting */}
-      <p className="text-base text-foreground/80 -mb-1">{greeting}</p>
-
       {/* Hero card */}
-      <div className="premium-card p-5">
-        <div className="flex items-center gap-5">
-          <ProgressRing value={pct} size={130} stroke={9} />
+      <div className="premium-card p-6">
+        <div className="flex items-center gap-6">
+          <ProgressRing value={pct} size={138} stroke={10} />
           <div className="flex-1 min-w-0">
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground">PROGRESO</p>
-            <p className="mt-1 font-display text-[34px] font-bold leading-none tracking-tight">
-              {done}<span className="text-2xl font-semibold text-muted-foreground/60">/{total}</span>
+            <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">PROGRESO</p>
+            <p className="mt-2 font-display text-[38px] font-bold leading-none tracking-[-0.03em]">
+              {done}<span className="text-2xl font-semibold text-muted-foreground/50">/{total}</span>
             </p>
-            <div className="hairline my-4" />
-            <div className="grid grid-cols-2 gap-3">
+            <div className="hairline my-5" />
+            <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-[12px] text-muted-foreground">Tareas</p>
-                <p className="mt-1 font-display text-lg font-bold tracking-tight">
-                  {tasksDone}<span className="text-muted-foreground/60">/{dayTasks.length}</span>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Tareas</p>
+                <p className="mt-1.5 font-display text-xl font-bold tracking-tight">
+                  {tasksDone}<span className="text-muted-foreground/50">/{dayTasks.length}</span>
                 </p>
               </div>
               <div>
-                <p className="text-[12px] text-muted-foreground">Hábitos</p>
-                <p className="mt-1 font-display text-lg font-bold tracking-tight">
-                  {habitsDone}<span className="text-muted-foreground/60">/{data.habits.length}</span>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Hábitos</p>
+                <p className="mt-1.5 font-display text-xl font-bold tracking-tight">
+                  {habitsDone}<span className="text-muted-foreground/50">/{data.habits.length}</span>
                 </p>
               </div>
             </div>
@@ -84,31 +77,26 @@ export function HomeView() {
       </div>
 
       {/* 2 cards */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4">
         <div className="premium-card p-5">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground">PENDIENTES HOY</p>
-          <p className="mt-3 font-display text-[40px] font-bold leading-none tracking-tight">{tasksPending}</p>
-          <p className="mt-2 text-[13px] text-muted-foreground">tareas</p>
+          <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">PENDIENTES</p>
+          <p className="mt-4 font-display text-[44px] font-bold leading-none tracking-[-0.03em]">{tasksPending}</p>
+          <p className="mt-2 text-[12px] text-muted-foreground">tareas hoy</p>
         </div>
         <div className="premium-card p-5">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground">HÁBITOS SEMANA</p>
-          <p className={`mt-3 font-display text-[40px] font-bold leading-none tracking-tight ${weekPct >= 60 ? "text-success" : "text-foreground/70"}`}>
-            {weekPct}<span className="text-2xl font-semibold text-muted-foreground/60">%</span>
+          <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">HÁBITOS SEMANA</p>
+          <p className={`mt-4 font-display text-[44px] font-bold leading-none tracking-[-0.03em] ${weekPct >= 60 ? "text-success" : "text-foreground/85"}`}>
+            {weekPct}<span className="text-2xl font-semibold text-muted-foreground/50">%</span>
           </p>
-          <p className="mt-2 text-[13px] text-muted-foreground">completado</p>
+          <p className="mt-2 text-[12px] text-muted-foreground">completado</p>
         </div>
       </div>
 
-      {/* Motivational */}
-      <p className="text-center text-sm italic text-muted-foreground/80 pt-2">
-        Hoy es un buen día para avanzar.
-      </p>
-
       {/* Empty state CTA */}
       {data.tasks.length === 0 && (
-        <div className="pt-8 text-center space-y-2">
+        <div className="pt-6 text-center space-y-2">
           <p className="text-sm text-muted-foreground">Comienza creando tareas y hábitos</p>
-          <p className="inline-flex items-center gap-2 text-base font-medium text-foreground">
+          <p className="inline-flex items-center gap-2 text-[15px] font-medium text-foreground">
             Ir a Checks <ArrowRight className="h-4 w-4" />
           </p>
         </div>

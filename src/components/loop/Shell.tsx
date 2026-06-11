@@ -49,15 +49,15 @@ export function BottomNav({ tab, onChange }: BottomNavProps) {
     { id: "checks", icon: CheckSquare },
   ];
   return (
-    <nav className="sticky bottom-0 z-10 px-6 pb-6 pt-3">
-      <div className="mx-auto flex max-w-xs items-center justify-around rounded-full border border-white/[0.06] bg-card/80 px-2 py-2 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]">
+    <nav className="sticky bottom-0 z-10 px-5 pb-5 pt-3">
+      <div className="flex items-center justify-around rounded-2xl border border-white/[0.06] bg-card/90 px-3 py-2 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]">
         {items.map(({ id, icon: Icon }) => {
           const active = tab === id;
           return (
             <button
               key={id}
               onClick={() => onChange(id)}
-              className={`relative grid h-11 w-11 place-items-center rounded-full transition ${
+              className={`relative grid h-11 w-11 place-items-center rounded-xl transition ${
                 active ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
               }`}
               aria-label={id}

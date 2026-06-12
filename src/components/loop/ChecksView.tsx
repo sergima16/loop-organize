@@ -80,7 +80,7 @@ export function ChecksView() {
 
           {tasks.length === 0 ? (
             <p className="py-16 text-center text-sm text-muted-foreground">
-              No hay tareas. Crea una nueva ✨
+              No hay tareas. Crea una nueva.
             </p>
           ) : (
             <ul className="space-y-2">

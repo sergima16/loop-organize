@@ -10,7 +10,7 @@ interface ProgressRingProps {
 export function ProgressRing({
   value,
   size = 124,
-  stroke = 10,
+  stroke = 8,
   color,
   label,
   sublabel = "hoy",
@@ -29,7 +29,7 @@ export function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={r}
-          stroke="var(--accent)"
+          stroke="oklch(1 0 0 / 8%)"
           strokeWidth={stroke}
           fill="none"
         />
@@ -43,14 +43,18 @@ export function ProgressRing({
           fill="none"
           strokeDasharray={c}
           strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 700ms cubic-bezier(.2,.8,.2,1)" }}
+          style={{
+            transition: "stroke-dashoffset 700ms cubic-bezier(.2,.8,.2,1)",
+            filter: v > 0 ? `drop-shadow(0 0 6px color-mix(in oklab, ${ringColor} 45%, transparent))` : undefined,
+          }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <span className="font-display text-[28px] font-bold leading-none tracking-[-0.03em]" style={{ color: ringColor }}>
-          {text}<span className="text-lg font-semibold opacity-80">%</span>
+        <span className="stat-num font-display text-[30px] font-bold leading-none text-foreground">
+          {text}
+          <span className="text-base font-semibold text-muted-foreground">%</span>
         </span>
-        <span className="mt-1 text-[11px] font-medium text-muted-foreground">{sublabel}</span>
+        <span className="mt-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{sublabel}</span>
       </div>
     </div>
   );

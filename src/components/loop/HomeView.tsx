@@ -36,7 +36,7 @@ export function HomeView() {
   const dateLabel = `${DAYS[date.getDay()]}, ${date.getDate()} ${MONTHS[date.getMonth()]}`;
 
   return (
-    <div className="space-y-6 px-5 pb-4">
+    <div className="space-y-7 px-5 pb-6">
       {/* Day navigator */}
       <div className="flex items-center justify-between text-muted-foreground pt-1">
         <button onClick={() => setOffset((o) => o - 1)} className="grid h-9 w-9 place-items-center rounded-full hover:text-foreground transition">
@@ -49,12 +49,12 @@ export function HomeView() {
       </div>
 
       {/* Hero card */}
-      <div className="premium-card p-6">
-        <div className="flex items-center gap-6">
-          <ProgressRing value={pct} size={138} stroke={10} />
+      <div className="premium-card p-7">
+        <div className="flex items-center gap-7">
+          <ProgressRing value={pct} size={138} stroke={8} />
           <div className="flex-1 min-w-0">
             <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">PROGRESO</p>
-            <p className="mt-2 font-display text-[38px] font-bold leading-none tracking-[-0.03em]">
+            <p className="stat-num mt-2 font-display text-[40px] font-bold leading-none">
               {done}<span className="text-2xl font-semibold text-muted-foreground/50">/{total}</span>
             </p>
             <div className="hairline my-5" />
@@ -78,17 +78,17 @@ export function HomeView() {
 
       {/* 2 cards */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="premium-card p-5">
+        <div className="premium-card p-6">
           <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">PENDIENTES</p>
-          <p className="mt-4 font-display text-[44px] font-bold leading-none tracking-[-0.03em]">{tasksPending}</p>
-          <p className="mt-2 text-[12px] text-muted-foreground">tareas hoy</p>
+          <p className="stat-num mt-5 font-display text-[46px] font-bold leading-none">{tasksPending}</p>
+          <p className="mt-2.5 text-[12px] text-muted-foreground">tareas hoy</p>
         </div>
-        <div className="premium-card p-5">
+        <div className="premium-card p-6">
           <p className="text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">HÁBITOS SEMANA</p>
-          <p className={`mt-4 font-display text-[44px] font-bold leading-none tracking-[-0.03em] ${weekPct >= 60 ? "text-success" : "text-foreground/85"}`}>
+          <p className={`stat-num mt-5 font-display text-[46px] font-bold leading-none ${weekPct >= 60 ? "text-success" : "text-foreground/90"}`}>
             {weekPct}<span className="text-2xl font-semibold text-muted-foreground/50">%</span>
           </p>
-          <p className="mt-2 text-[12px] text-muted-foreground">completado</p>
+          <p className="mt-2.5 text-[12px] text-muted-foreground">completado</p>
         </div>
       </div>
 

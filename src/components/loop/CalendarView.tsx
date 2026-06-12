@@ -31,7 +31,7 @@ export function CalendarView() {
   return (
     <div className="space-y-4 px-5">
       <div className="flex items-center justify-between">
-        <h2 className="text-[13px] font-medium tracking-tight text-muted-foreground">
+        <h2 className="text-2xl font-semibold tracking-tight">
           {MONTHS[cursor.getMonth()]} {cursor.getFullYear()}
         </h2>
         <div className="flex gap-2">

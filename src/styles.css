@@ -125,6 +125,11 @@
     box-shadow: var(--shadow-card);
     border-radius: var(--radius);
   }
+  .light .premium-card {
+    background: var(--color-card);
+    border: 1px solid oklch(0 0 0 / 6%);
+    box-shadow: 0 0 0 1px oklch(0 0 0 / 4%);
+  }
   .hairline {
     background: linear-gradient(90deg, transparent, oklch(1 0 0 / 10%), transparent);
     height: 1px;

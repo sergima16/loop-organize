@@ -134,7 +134,7 @@ export function ChecksView() {
           <p className="text-sm text-muted-foreground">{weekPct}% esta semana</p>
           {data.habits.length === 0 ? (
             <p className="py-16 text-center text-sm text-muted-foreground">
-              Sin hábitos. Crea uno nuevo ✨
+              Sin hábitos. Crea uno nuevo.
             </p>
           ) : (
             <ul className="space-y-3">

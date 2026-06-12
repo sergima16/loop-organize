@@ -50,7 +50,7 @@ export function BottomNav({ tab, onChange }: BottomNavProps) {
   ];
   return (
     <nav className="sticky bottom-0 z-10 px-5 pb-5 pt-3">
-      <div className="flex items-center justify-around rounded-2xl border border-white/[0.06] bg-card/90 px-3 py-2 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)]">
+      <div className="flex items-center justify-around rounded-2xl border border-white/[0.07] bg-card/70 px-3 py-2 backdrop-blur-2xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.03)_inset]">
         {items.map(({ id, icon: Icon }) => {
           const active = tab === id;
           return (

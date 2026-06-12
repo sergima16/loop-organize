@@ -102,12 +102,22 @@
   }
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(1100px 700px at 50% -10%, oklch(0.18 0.01 270 / 55%), transparent 60%),
+      radial-gradient(900px 600px at 100% 110%, oklch(0.14 0.008 280 / 45%), transparent 60%),
+      radial-gradient(700px 500px at 0% 100%, oklch(0.13 0.006 260 / 40%), transparent 65%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11", "tnum";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
+  }
+  .light body {
+    background-image:
+      radial-gradient(1100px 700px at 50% -10%, oklch(0.92 0 0 / 70%), transparent 60%),
+      radial-gradient(900px 600px at 100% 110%, oklch(0.95 0 0 / 60%), transparent 60%);
   }
   .light .loop-logo-img {
     filter: invert(1);

@@ -19,7 +19,7 @@ export function ProgressRing({
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const offset = c - (v / 100) * c;
-  const ringColor = color ?? (v >= 60 ? "var(--success)" : v > 0 ? "var(--danger)" : "var(--muted-foreground)");
+  const ringColor = color ?? (v >= 60 ? "var(--success)" : v > 0 ? "var(--danger)" : "var(--progress-track)");
   const text = label ?? `${Math.round(v)}`;
 
   return (
@@ -29,7 +29,7 @@ export function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={r}
-          stroke="oklch(1 0 0 / 8%)"
+          stroke="var(--progress-track)"
           strokeWidth={stroke}
           fill="none"
         />

@@ -103,9 +103,10 @@
   body {
     background-color: var(--color-background);
     background-image:
-      radial-gradient(1100px 700px at 50% -12%, oklch(0.24 0.012 270 / 80%), transparent 62%),
-      radial-gradient(900px 620px at 105% 112%, oklch(0.19 0.01 280 / 65%), transparent 62%),
-      radial-gradient(720px 520px at -5% 102%, oklch(0.17 0.008 260 / 55%), transparent 66%);
+      radial-gradient(1200px 800px at 50% -15%, oklch(0.18 0.006 270 / 95%), transparent 65%),
+      radial-gradient(900px 700px at 110% 110%, oklch(0.14 0.005 280 / 80%), transparent 62%),
+      radial-gradient(800px 600px at -10% 100%, oklch(0.12 0.004 260 / 70%), transparent 65%),
+      linear-gradient(180deg, oklch(0.08 0.003 270) 0%, oklch(0.04 0.002 270) 100%);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);

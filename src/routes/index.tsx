@@ -30,7 +30,7 @@ function Index() {
 
   return (
     <div className="loop-app-bg min-h-screen text-foreground">
-      <div className="mx-auto flex min-h-screen max-w-md flex-col">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-md flex-col">
         <TopBar />
         <main className="flex-1 pb-24 pt-2">
           {tab === "home" && <HomeView />}

@@ -103,13 +103,12 @@
     height: 100%;
   }
   body {
-    background-color: var(--color-background);
+    background-color: #000;
     background-image:
-      radial-gradient(1100px 720px at 50% -18%, oklch(0.17 0.002 270 / 62%), transparent 67%),
-      radial-gradient(900px 620px at 108% 105%, oklch(0.125 0.002 270 / 36%), transparent 68%),
-      radial-gradient(760px 540px at -8% 98%, oklch(0.115 0.002 270 / 28%), transparent 70%),
-      linear-gradient(180deg, oklch(0.075 0.001 270) 0%, oklch(0.045 0.001 270) 52%, oklch(0.025 0.001 270) 100%);
+      radial-gradient(120% 70% at 50% 0%, oklch(0.20 0.003 270 / 90%), transparent 60%),
+      linear-gradient(180deg, oklch(0.13 0.002 270) 0%, oklch(0.07 0.001 270) 45%, #000 100%);
     background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11", "tnum";
@@ -118,9 +117,10 @@
     letter-spacing: -0.01em;
   }
   .light body {
+    background-color: oklch(0.99 0 0);
     background-image:
-      radial-gradient(1100px 700px at 50% -10%, oklch(0.92 0 0 / 70%), transparent 60%),
-      radial-gradient(900px 600px at 100% 110%, oklch(0.95 0 0 / 60%), transparent 60%);
+      radial-gradient(120% 70% at 50% 0%, oklch(0.96 0 0 / 90%), transparent 60%),
+      linear-gradient(180deg, oklch(0.985 0 0) 0%, oklch(0.965 0 0) 50%, oklch(0.94 0 0) 100%);
   }
   .light .loop-logo-img {
     filter: invert(1);

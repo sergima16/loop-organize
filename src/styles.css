@@ -103,11 +103,11 @@
     height: 100%;
   }
   body {
-    background-color: oklch(0.015 0 0);
+    background-color: oklch(0.01 0 0);
     background-image:
-      radial-gradient(120% 82% at 50% -10%, oklch(0.31 0.004 270 / 78%) 0%, oklch(0.18 0.003 270 / 52%) 34%, transparent 68%),
-      radial-gradient(85% 62% at 50% 44%, oklch(0.17 0.003 270 / 34%) 0%, transparent 62%),
-      linear-gradient(180deg, oklch(0.12 0.002 270) 0%, oklch(0.055 0.001 270) 46%, oklch(0.018 0 0) 100%);
+      radial-gradient(130% 90% at 50% -18%, oklch(0.50 0.004 270 / 86%) 0%, oklch(0.30 0.003 270 / 72%) 30%, transparent 66%),
+      radial-gradient(100% 72% at 50% 34%, oklch(0.25 0.003 270 / 54%) 0%, transparent 68%),
+      linear-gradient(180deg, oklch(0.19 0.002 270) 0%, oklch(0.085 0.001 270) 48%, oklch(0.01 0 0) 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: var(--color-foreground);
@@ -128,7 +128,10 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background: oklch(0.012 0 0);
+    background:
+      radial-gradient(130% 90% at 50% -18%, oklch(0.50 0.004 270 / 86%) 0%, oklch(0.30 0.003 270 / 72%) 30%, transparent 66%),
+      radial-gradient(100% 72% at 50% 34%, oklch(0.25 0.003 270 / 54%) 0%, transparent 68%),
+      linear-gradient(180deg, oklch(0.19 0.002 270) 0%, oklch(0.085 0.001 270) 48%, oklch(0.01 0 0) 100%);
   }
   .loop-app-bg::before {
     content: "";
@@ -137,9 +140,9 @@
     z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(120% 86% at 50% -16%, oklch(0.46 0.004 270 / 82%) 0%, oklch(0.26 0.003 270 / 66%) 34%, transparent 70%),
-      radial-gradient(96% 64% at 50% 38%, oklch(0.24 0.003 270 / 46%) 0%, transparent 66%),
-      linear-gradient(180deg, oklch(0.17 0.002 270) 0%, oklch(0.075 0.001 270) 50%, oklch(0.012 0 0) 100%);
+      radial-gradient(130% 90% at 50% -18%, oklch(0.50 0.004 270 / 86%) 0%, oklch(0.30 0.003 270 / 72%) 30%, transparent 66%),
+      radial-gradient(100% 72% at 50% 34%, oklch(0.25 0.003 270 / 54%) 0%, transparent 68%),
+      linear-gradient(180deg, oklch(0.19 0.002 270) 0%, oklch(0.085 0.001 270) 48%, oklch(0.01 0 0) 100%);
   }
   .light .loop-app-bg {
     background: oklch(0.965 0 0);

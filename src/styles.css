@@ -66,6 +66,7 @@
   --border: oklch(1 0 0 / 7%);
   --input: oklch(1 0 0 / 9%);
   --ring: oklch(1 0 0 / 20%);
+  --progress-track: oklch(1 0 0 / 11%);
   --shadow-card:
     0 1px 0 0 oklch(1 0 0 / 7%) inset,
     0 0 0 1px oklch(1 0 0 / 5%),
@@ -91,6 +92,7 @@
   --accent-foreground: oklch(0.13 0 0);
   --border: oklch(0 0 0 / 10%);
   --input: oklch(0 0 0 / 12%);
+  --progress-track: oklch(0.28 0 0 / 28%);
 }
 
 @layer base {
@@ -103,10 +105,10 @@
   body {
     background-color: var(--color-background);
     background-image:
-      radial-gradient(1200px 800px at 50% -15%, oklch(0.18 0.006 270 / 95%), transparent 65%),
-      radial-gradient(900px 700px at 110% 110%, oklch(0.14 0.005 280 / 80%), transparent 62%),
-      radial-gradient(800px 600px at -10% 100%, oklch(0.12 0.004 260 / 70%), transparent 65%),
-      linear-gradient(180deg, oklch(0.08 0.003 270) 0%, oklch(0.04 0.002 270) 100%);
+      radial-gradient(1100px 720px at 50% -18%, oklch(0.17 0.002 270 / 62%), transparent 67%),
+      radial-gradient(900px 620px at 108% 105%, oklch(0.125 0.002 270 / 36%), transparent 68%),
+      radial-gradient(760px 540px at -8% 98%, oklch(0.115 0.002 270 / 28%), transparent 70%),
+      linear-gradient(180deg, oklch(0.075 0.001 270) 0%, oklch(0.045 0.001 270) 52%, oklch(0.025 0.001 270) 100%);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);

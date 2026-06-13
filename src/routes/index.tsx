@@ -29,7 +29,7 @@ function Index() {
   const [tab, setTab] = useState<LoopTab>("home");
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="loop-app-bg min-h-screen text-foreground">
       <div className="mx-auto flex min-h-screen max-w-md flex-col">
         <TopBar />
         <main className="flex-1 pb-24 pt-2">

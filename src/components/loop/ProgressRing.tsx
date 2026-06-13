@@ -19,17 +19,21 @@ export function ProgressRing({
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const offset = c - (v / 100) * c;
-  const ringColor = color ?? (v >= 60 ? "var(--success)" : v > 0 ? "var(--danger)" : "var(--muted-foreground)");
+  const ringColor =
+    color ?? (v >= 60 ? "var(--success)" : v > 0 ? "var(--danger)" : "var(--progress-track)");
   const text = label ?? `${Math.round(v)}`;
 
   return (
-    <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
+    <div
+      className="relative inline-flex items-center justify-center"
+      style={{ width: size, height: size }}
+    >
       <svg width={size} height={size} className="-rotate-90">
         <circle
           cx={size / 2}
           cy={size / 2}
           r={r}
-          stroke="oklch(1 0 0 / 8%)"
+          stroke="var(--progress-track)"
           strokeWidth={stroke}
           fill="none"
         />
@@ -53,7 +57,9 @@ export function ProgressRing({
           {text}
           <span className="text-base font-semibold text-muted-foreground">%</span>
         </span>
-        <span className="mt-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{sublabel}</span>
+        <span className="mt-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {sublabel}
+        </span>
       </div>
     </div>
   );

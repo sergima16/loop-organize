@@ -134,21 +134,21 @@
     content: "";
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(115% 76% at 50% -12%, oklch(0.36 0.004 270 / 72%) 0%, oklch(0.22 0.003 270 / 56%) 34%, transparent 68%),
-      radial-gradient(92% 58% at 50% 42%, oklch(0.20 0.003 270 / 38%) 0%, transparent 62%),
-      linear-gradient(180deg, oklch(0.14 0.002 270) 0%, oklch(0.07 0.001 270) 48%, oklch(0.015 0 0) 100%);
+      radial-gradient(120% 86% at 50% -16%, oklch(0.46 0.004 270 / 82%) 0%, oklch(0.26 0.003 270 / 66%) 34%, transparent 70%),
+      radial-gradient(96% 64% at 50% 38%, oklch(0.24 0.003 270 / 46%) 0%, transparent 66%),
+      linear-gradient(180deg, oklch(0.17 0.002 270) 0%, oklch(0.075 0.001 270) 50%, oklch(0.012 0 0) 100%);
   }
   .light .loop-app-bg {
     background: oklch(0.965 0 0);
   }
   .light .loop-app-bg::before {
     background:
-      radial-gradient(120% 78% at 50% -12%, oklch(1 0 0 / 98%) 0%, oklch(0.88 0 0 / 78%) 36%, transparent 70%),
-      radial-gradient(90% 58% at 50% 42%, oklch(0.82 0 0 / 38%) 0%, transparent 64%),
-      linear-gradient(180deg, oklch(0.995 0 0) 0%, oklch(0.95 0 0) 50%, oklch(0.89 0 0) 100%);
+      radial-gradient(120% 82% at 50% -14%, oklch(1 0 0 / 100%) 0%, oklch(0.84 0 0 / 86%) 36%, transparent 72%),
+      radial-gradient(94% 62% at 50% 40%, oklch(0.78 0 0 / 46%) 0%, transparent 66%),
+      linear-gradient(180deg, oklch(0.998 0 0) 0%, oklch(0.94 0 0) 50%, oklch(0.875 0 0) 100%);
   }
   .light .loop-logo-img {
     filter: invert(1);

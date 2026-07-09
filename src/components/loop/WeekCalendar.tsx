@@ -3,10 +3,10 @@ import { useLoop, weekKeys, todayKey } from "@/lib/loop-store";
 
 const DAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
-export function WeekCalendar({ ref: refDate }: { ref: Date }) {
+export function WeekCalendar({ date }: { date: Date }) {
   const { data, update } = useLoop();
   const [dragId, setDragId] = useState<string | null>(null);
-  const keys = weekKeys(refDate);
+  const keys = weekKeys(date);
   const today = todayKey();
 
   return (

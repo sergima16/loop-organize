@@ -1,6 +1,9 @@
-import { Calendar, Circle, CheckSquare, Sun, Moon } from "lucide-react";
+import { Calendar, Circle, CheckSquare, Sun, Moon, BarChart3, Settings } from "lucide-react";
 import { useEffect, useState } from "react";
 import loopLogo from "@/assets/loop-logo.png";
+import { StatsSheet } from "./StatsSheet";
+import { SettingsSheet } from "./SettingsSheet";
+import { useLoop } from "@/lib/loop-store";
 
 export type LoopTab = "home" | "calendar" | "checks";
 
@@ -15,27 +18,67 @@ export function LoopLogo({ className = "" }: { className?: string }) {
   );
 }
 
+const ACCENT_MAP: Record<string, string> = {
+  default: "oklch(0.995 0 0)",
+  green: "oklch(0.80 0.17 150)",
+  blue: "oklch(0.72 0.18 250)",
+  amber: "oklch(0.82 0.16 80)",
+  pink: "oklch(0.74 0.18 320)",
+  violet: "oklch(0.75 0.14 280)",
+};
+
 export function TopBar() {
   const [light, setLight] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const { data } = useLoop();
+
   useEffect(() => {
     document.documentElement.classList.toggle("light", light);
   }, [light]);
 
+  useEffect(() => {
+    const color = ACCENT_MAP[data.settings.accent] ?? ACCENT_MAP.default;
+    document.documentElement.style.setProperty("--accent-user", color);
+  }, [data.settings.accent]);
+
   return (
     <header className="flex items-center justify-between px-5 pt-5 pb-2">
       <LoopLogo />
-      <button
-        onClick={() => setLight((v) => !v)}
-        className="grid h-10 w-10 place-items-center rounded-full bg-foreground text-background transition hover:scale-105"
-        aria-label="Toggle theme"
-      >
-        {light ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => setStatsOpen(true)}
+          className="grid h-10 w-10 place-items-center rounded-full bg-card text-foreground transition hover:scale-105"
+          aria-label="Estadísticas"
+        >
+          <BarChart3 className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => setSettingsOpen(true)}
+          className="grid h-10 w-10 place-items-center rounded-full bg-card text-foreground transition hover:scale-105"
+          aria-label="Ajustes"
+        >
+          <Settings className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => setLight((v) => !v)}
+          className="grid h-10 w-10 place-items-center rounded-full bg-foreground text-background transition hover:scale-105"
+          aria-label="Toggle theme"
+        >
+          {light ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+        </button>
+      </div>
+
+      <StatsSheet open={statsOpen} onClose={() => setStatsOpen(false)} />
+      <SettingsSheet
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        light={light}
+        onToggleTheme={() => setLight((v) => !v)}
+      />
     </header>
   );
 }
-
-
 
 interface BottomNavProps {
   tab: LoopTab;

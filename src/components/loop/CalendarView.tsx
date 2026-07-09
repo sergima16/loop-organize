@@ -122,7 +122,7 @@ export function CalendarView() {
           </div>
         </div>
       ) : (
-        <WeekCalendar ref={new Date(selected)} />
+        <WeekCalendar date={new Date(selected)} />
       )}
 
       <div className="premium-card rounded-2xl p-4">

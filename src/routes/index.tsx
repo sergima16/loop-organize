@@ -4,6 +4,7 @@ import { TopBar, BottomNav, type LoopTab } from "@/components/loop/Shell";
 import { HomeView } from "@/components/loop/HomeView";
 import { CalendarView } from "@/components/loop/CalendarView";
 import { ChecksView } from "@/components/loop/ChecksView";
+import { useReminders } from "@/lib/use-reminders";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,13 +13,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "loop es una app móvil para organizar tareas y hábitos diarios con seguimiento visual de tu progreso.",
+          "loop es una app móvil para organizar tareas, hábitos, objetivos y proyectos con seguimiento visual de tu progreso.",
       },
       { property: "og:title", content: "loop — organiza tus tareas y hábitos" },
       {
         property: "og:description",
         content:
-          "Una app móvil minimalista para organizar tareas y hábitos diarios.",
+          "Una app móvil minimalista para organizar tareas, hábitos, objetivos y proyectos.",
       },
     ],
   }),
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [tab, setTab] = useState<LoopTab>("home");
+  useReminders();
 
   return (
     <div className="loop-app-bg min-h-screen text-foreground">
